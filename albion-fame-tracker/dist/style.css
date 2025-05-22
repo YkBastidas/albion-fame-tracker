@@ -1,0 +1,157 @@
+/* General Body and Container Styles */
+body {
+  padding: 20px;
+  max-width: 900px; /* Constrain content width */
+  margin: 20px auto; /* Center content */
+  background-color: #f8f8f8; /* Light background */
+  color: #333; /* Darker text */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+h1,
+h2,
+h3 {
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+section {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+/* Form Specifics */
+form label {
+  display: block; /* Ensure labels are on their own line */
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+form input[type="number"],
+form select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+/* Button Layout (using Pico's grid-like behavior) */
+form > div {
+  /* This targets the div containing start/stop buttons */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px; /* Space between buttons */
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Timer Display */
+.timer-display {
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+  margin: 30px 0;
+  color: #007bff; /* A prominent blue */
+  background-color: #e9f5ff;
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px solid #007bff;
+}
+
+/* Log Table */
+#logTable {
+  width: 100%;
+  border-collapse: collapse; /* Remove double borders */
+  margin-top: 20px;
+}
+
+#logTable th,
+#logTable td {
+  border: 1px solid #ddd;
+  padding: 12px 10px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+#logTable th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  color: #555;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+#logTable tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Zebra striping */
+}
+
+#logTable tbody tr:hover {
+  background-color: #e0e0e0; /* Hover effect */
+}
+
+#logTable td:last-child {
+  /* Actions column */
+  text-align: center;
+}
+
+/* Table Responsiveness */
+.table-container {
+  overflow-x: auto; /* Adds horizontal scroll if content overflows */
+  -webkit-overflow-scrolling: touch; /* Improves scrolling on touch devices */
+  margin-bottom: 20px; /* Space below the table */
+}
+
+#logTable {
+  min-width: 700px; /* Ensure table doesn't get too squished before scrolling */
+  /* All other #logTable styles remain the same */
+}
+
+/* Export button */
+#exportBtn {
+  background-color: #6c757d; /* Grey for export */
+  color: white;
+  border: none;
+  margin-bottom: 20px;
+}
+#exportBtn:hover {
+  background-color: #5a6268;
+}
+
+/* Chart Container Layout */
+.chart-container > div {
+  /* Targets the direct divs holding canvas elements */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px; /* Space between chart sections */
+}
+
+/* Small screen adjustments */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  form > div {
+    grid-template-columns: 1fr; /* Stack buttons on small screens */
+  }
+}

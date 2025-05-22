@@ -1,0 +1,104 @@
+<header>
+  <h1>Albion Online Fame Tracker</h1>
+</header>
+
+<main>
+  <section>
+    <h2>Start New Activity</h2>
+    <form id="activityForm">
+      <label for="activityType">Activity Type:</label>
+      <select id="activityType" required>
+        <option value="Solo Dungeon">Solo Dungeon</option>
+        <option value="Group Dungeon">Group Dungeon</option>
+        <option value="Static Dungeon">Static Dungeon</option>
+        <option value="Open World Mob Farming">Open World Mob Farming</option>
+        <option value="Gathering">Gathering</option>
+        <option value="Corrupted Dungeon">Corrupted Dungeon</option>
+        <option value="Avalonian Dungeon">Avalonian Dungeon</option>
+        <option value="Hellgate">Hellgate</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="partyMembers">Number of Party Members:</label>
+      <input type="number" id="partyMembers" value="1" min="1" required>
+
+      <label for="initialFame">Initial Fame:</label>
+      <input type="number" id="initialFame" value="0" min="0" required>
+
+      <div class="grid">
+        <div>
+          <button type="button" id="startTimerBtn">Start Timer</button>
+          <button type="button" id="stopTimerBtn" disabled>Stop Timer</button>
+        </div>
+        <fieldset>
+          <label for="manualModeToggle">
+            <input type="checkbox" id="manualModeToggle" name="manualModeToggle" role="switch">
+            Manual Entry
+          </label>
+        </fieldset>
+      </div>
+
+      <div id="manualInputSection" style="display: none;">
+        <label for="manualDurationMinutes">Duration (Minutes):</label>
+        <input type="number" id="manualDurationMinutes" value="30" min="1" required>
+      </div>
+    </form>
+
+    <div class="timer-display" id="timerDisplay">00:00:00</div>
+
+    <div id="finishActivitySection" style="display: none;">
+      <h2>Finish Activity</h2>
+      <form id="finishForm">
+        <label for="finalFame">Final Fame:</label>
+        <input type="number" id="finalFame" value="0" min="0" required>
+
+        <label for="silverValue">Average Silver in Items:</label>
+        <input type="number" id="silverValue" value="0" min="0" required>
+
+        <button type="submit">Save Activity</button>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <h2>Activity Log</h2>
+    <button id="exportBtn">Export Log (JSON)</button>
+    <div class="table-container">
+      <table id="logTable">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Party</th>
+            <th>Fame Gained</th>
+            <th>Duration</th>
+            <th>Fame/Hr</th>
+            <th>Silver Value</th>
+            <th>Silver/Hr</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Analysis</h2>
+    <div>
+      <div>
+        <h3>Fame Per Hour by Activity</h3>
+        <canvas id="fameChart"></canvas>
+      </div>
+      <div>
+        <h3>Silver Per Hour by Activity</h3>
+        <canvas id="silverChart"></canvas>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <small>Albion Fame Tracker - Made by You</small>
+</footer>
